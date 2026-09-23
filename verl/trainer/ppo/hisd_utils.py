@@ -153,15 +153,9 @@ def build_hisd_metadata(
 
         prefix_delta = torch.zeros((), dtype=torch.float32, device=teacher_logits.device)
         if coefficient_mode == "position":
-            final_weight = 0.001
-            final_step_index = len(step_data) - 1
-            for step_index, (indices, current_delta) in enumerate(step_data):
-                relative_position = (
-                    0.0
-                    if final_step_index == 0
-                    else step_index / final_step_index
-                )
-                weight = lambda_base + (final_weight - lambda_base) * relative_position
+            num_steps = len(step_data)
+            for step_index, (indices, current_delta) in enumerate(step_data, start=1):
+                weight = (num_steps + 1 - step_index) / num_steps
                 turn_weights[indices] = weight
                 prefix_deltas[indices] = prefix_delta
                 prefix_delta = gamma * prefix_delta + current_delta

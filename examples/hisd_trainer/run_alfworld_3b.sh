@@ -12,7 +12,7 @@ alpha=3.0
 support_selector=dynamic_top_p
 topk=256
 topk_source=teacher
-min_support_size=1
+min_support_size=2
 renormalize=true
 skill_all=false
 

@@ -141,7 +141,7 @@ class SkillSDRayTrainer(RLSDRayTrainer):
             lambda_base=float(self.hisd_cfg.get("lambda_base", 0.01)),
             gamma=float(self.hisd_cfg.get("gamma", 0.9)),
             alpha=float(self.hisd_cfg.get("alpha", 5.0)),
-            min_support_size=int(self.hisd_cfg.get("min_support_size", 1)),
+            min_support_size=int(self.hisd_cfg.get("min_support_size", 2)),
             random_k=int(self.hisd_cfg.get("random_k", 8)),
             topk_source=topk_source,
             support_selector=str(

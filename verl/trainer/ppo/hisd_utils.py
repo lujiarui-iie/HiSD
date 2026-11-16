@@ -43,7 +43,7 @@ def build_hisd_metadata(
     lambda_base: float,
     gamma: float,
     alpha: float,
-    min_support_size: int = 1,
+    min_support_size: int = 2,
     random_k: int = 8,
     topk_source: str = "teacher",
     support_selector: str = "dynamic_top_p",

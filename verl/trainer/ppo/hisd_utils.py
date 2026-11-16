@@ -155,7 +155,7 @@ def build_hisd_metadata(
         if coefficient_mode == "position":
             num_steps = len(step_data)
             for step_index, (indices, current_delta) in enumerate(step_data, start=1):
-                weight = (num_steps + 1 - step_index) / num_steps
+                weight = lambda_base * (num_steps + 1 - step_index) / num_steps
                 turn_weights[indices] = weight
                 prefix_deltas[indices] = prefix_delta
                 prefix_delta = gamma * prefix_delta + current_delta
